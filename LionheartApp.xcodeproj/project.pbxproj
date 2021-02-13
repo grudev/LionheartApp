@@ -14,6 +14,8 @@
 		9FB82D7625D7FC580032A0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB82D7425D7FC580032A0FD /* LaunchScreen.storyboard */; };
 		9FB82D8125D7FC590032A0FD /* LionheartAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82D8025D7FC590032A0FD /* LionheartAppTests.swift */; };
 		9FB82D8C25D7FC590032A0FD /* LionheartAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82D8B25D7FC590032A0FD /* LionheartAppUITests.swift */; };
+		9FB82DB225D7FEB60032A0FD /* AppDomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */; };
+		9FB82DBA25D7FF700032A0FD /* AppInitialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		9FB82D8725D7FC590032A0FD /* LionheartAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionheartAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB82D8B25D7FC590032A0FD /* LionheartAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LionheartAppUITests.swift; sourceTree = "<group>"; };
 		9FB82D8D25D7FC590032A0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDomainError.swift; sourceTree = "<group>"; };
+		9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitialiser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				9FB82D6925D7FC550032A0FD /* AppDelegate.swift */,
+				9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 		9FB82DA525D7FD670032A0FD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9FB82DB025D7FE9C0032A0FD /* Errors */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -187,6 +193,14 @@
 				9FB82D7225D7FC580032A0FD /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		9FB82DB025D7FE9C0032A0FD /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +334,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FB82D6E25D7FC550032A0FD /* ViewController.swift in Sources */,
+				9FB82DBA25D7FF700032A0FD /* AppInitialiser.swift in Sources */,
+				9FB82DB225D7FEB60032A0FD /* AppDomainError.swift in Sources */,
 				9FB82D6A25D7FC550032A0FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

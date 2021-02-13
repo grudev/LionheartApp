@@ -16,6 +16,11 @@
 		9FB82D8C25D7FC590032A0FD /* LionheartAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82D8B25D7FC590032A0FD /* LionheartAppUITests.swift */; };
 		9FB82DB225D7FEB60032A0FD /* AppDomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */; };
 		9FB82DBA25D7FF700032A0FD /* AppInitialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */; };
+		9FB82DC225D801B10032A0FD /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DC125D801B10032A0FD /* Coordinatable.swift */; };
+		9FB82DCA25D802020032A0FD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DC925D802020032A0FD /* MainCoordinator.swift */; };
+		9FB82DCF25D802DF0032A0FD /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DCE25D802DF0032A0FD /* AppTheme.swift */; };
+		9FB82DD425D809080032A0FD /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DD325D809080032A0FD /* Identifiable.swift */; };
+		9FB82DDA25D80A190032A0FD /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DD925D80A190032A0FD /* AppDIContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		9FB82D8D25D7FC590032A0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDomainError.swift; sourceTree = "<group>"; };
 		9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitialiser.swift; sourceTree = "<group>"; };
+		9FB82DC125D801B10032A0FD /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		9FB82DC925D802020032A0FD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		9FB82DCE25D802DF0032A0FD /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		9FB82DD325D809080032A0FD /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		9FB82DD925D80A190032A0FD /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +151,10 @@
 		9FB82DA325D7FD4F0032A0FD /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9FB82DD825D80A080032A0FD /* DIContainer */,
 				9FB82D6925D7FC550032A0FD /* AppDelegate.swift */,
 				9FB82DB925D7FF700032A0FD /* AppInitialiser.swift */,
+				9FB82DCE25D802DF0032A0FD /* AppTheme.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -150,9 +162,9 @@
 		9FB82DA425D7FD560032A0FD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9FB82D6D25D7FC550032A0FD /* ViewController.swift */,
-				9FB82D6F25D7FC550032A0FD /* Main.storyboard */,
-				9FB82D7425D7FC580032A0FD /* LaunchScreen.storyboard */,
+				9FB82DBE25D801690032A0FD /* Coordinators */,
+				9FB82DBF25D801730032A0FD /* Scenes */,
+				9FB82DC025D8017E0032A0FD /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 		9FB82DA725D7FD800032A0FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9FB82DD325D809080032A0FD /* Identifiable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +214,40 @@
 				9FB82DB125D7FEB60032A0FD /* AppDomainError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		9FB82DBE25D801690032A0FD /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82DC125D801B10032A0FD /* Coordinatable.swift */,
+				9FB82DC925D802020032A0FD /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		9FB82DBF25D801730032A0FD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82D6D25D7FC550032A0FD /* ViewController.swift */,
+				9FB82D6F25D7FC550032A0FD /* Main.storyboard */,
+				9FB82D7425D7FC580032A0FD /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9FB82DC025D8017E0032A0FD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9FB82DD825D80A080032A0FD /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82DD925D80A190032A0FD /* AppDIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +380,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB82DCF25D802DF0032A0FD /* AppTheme.swift in Sources */,
 				9FB82D6E25D7FC550032A0FD /* ViewController.swift in Sources */,
+				9FB82DCA25D802020032A0FD /* MainCoordinator.swift in Sources */,
 				9FB82DBA25D7FF700032A0FD /* AppInitialiser.swift in Sources */,
+				9FB82DC225D801B10032A0FD /* Coordinatable.swift in Sources */,
+				9FB82DD425D809080032A0FD /* Identifiable.swift in Sources */,
 				9FB82DB225D7FEB60032A0FD /* AppDomainError.swift in Sources */,
 				9FB82D6A25D7FC550032A0FD /* AppDelegate.swift in Sources */,
+				9FB82DDA25D80A190032A0FD /* AppDIContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

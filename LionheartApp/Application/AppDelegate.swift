@@ -18,13 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return window
     }()
     
+    // MARK: - Dependency Injection Container
+    
+    private lazy var container: MainCoordinatorDIContainer = AppDIContainer()
+    
     // MARK: - App Initialiser
     
     private lazy var appInitialiser: AppInitialiser = {
         guard let window = window else { fatalError(.appWindowFailedToCreate) }
-        return AppInitialiser(window: window)
+        return AppInitialiser(window: window, container)
     }()
-
+    
     // MARK: - App Entry Point
     
     func application(_ application: UIApplication,

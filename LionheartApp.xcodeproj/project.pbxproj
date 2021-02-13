@@ -97,12 +97,13 @@
 		9FB82D6825D7FC550032A0FD /* LionheartApp */ = {
 			isa = PBXGroup;
 			children = (
+				9FB82DA325D7FD4F0032A0FD /* Application */,
+				9FB82DA425D7FD560032A0FD /* Presentation */,
+				9FB82DA525D7FD670032A0FD /* Domain */,
+				9FB82DA625D7FD760032A0FD /* Network */,
+				9FB82DA725D7FD800032A0FD /* Utils */,
 				9FB82D9C25D7FC670032A0FD /* SupportingFiles */,
-				9FB82D6925D7FC550032A0FD /* AppDelegate.swift */,
-				9FB82D6D25D7FC550032A0FD /* ViewController.swift */,
-				9FB82D6F25D7FC550032A0FD /* Main.storyboard */,
-				9FB82D7225D7FC580032A0FD /* Assets.xcassets */,
-				9FB82D7425D7FC580032A0FD /* LaunchScreen.storyboard */,
+				9FB82DA825D7FD8D0032A0FD /* Resources */,
 			);
 			path = LionheartApp;
 			sourceTree = "<group>";
@@ -131,6 +132,61 @@
 				9FB82D7725D7FC580032A0FD /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		9FB82DA325D7FD4F0032A0FD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82D6925D7FC550032A0FD /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9FB82DA425D7FD560032A0FD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82D6D25D7FC550032A0FD /* ViewController.swift */,
+				9FB82D6F25D7FC550032A0FD /* Main.storyboard */,
+				9FB82D7425D7FC580032A0FD /* LaunchScreen.storyboard */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9FB82DA525D7FD670032A0FD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9FB82DA625D7FD760032A0FD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9FB82DA725D7FD800032A0FD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9FB82DA825D7FD8D0032A0FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82DA925D7FD980032A0FD /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9FB82DA925D7FD980032A0FD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9FB82D7225D7FC580032A0FD /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -14,8 +14,6 @@ protocol Coordinatable: AnyObject {
     var navigationController: UINavigationController { get }
     var rootViewController: UIViewController? { get }
 
-    var rootScreenId: String? { get set }
-
     func start()
     func finish()
 

@@ -17,4 +17,3 @@ enum AppDomainError: String, Error {
 func fatalError(_ error: AppDomainError) -> Never {
     fatalError("ERROR: \(error.rawValue)")
 }
-

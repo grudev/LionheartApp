@@ -8,7 +8,8 @@
 import UIKit
 
 protocol MainCoordinatorDIContainer {
-    
+    func makeGallerySceneViewModel() -> GallerySceneViewModelable
+    func makeGallerySceneViewController(_ viewModel: GallerySceneViewModelable) -> GallerySceneViewController
 }
 
 final class MainCoordinator: Coordinatable {
@@ -21,7 +22,6 @@ final class MainCoordinator: Coordinatable {
     var childCoordinators: [Coordinatable]?
     lazy var navigationController = UINavigationController()
     var rootViewController: UIViewController?
-    var rootScreenId: String?
     
     // MARK: - DI Container
     
@@ -47,7 +47,9 @@ final class MainCoordinator: Coordinatable {
 private extension MainCoordinator {
     
     func presentGalleryScene() {
-        
+        let viewModel = container.makeGallerySceneViewModel()
+        let viewController = container.makeGallerySceneViewController(viewModel)
+        navigationController.pushViewController(viewController, animated: false)
     }
 
 }

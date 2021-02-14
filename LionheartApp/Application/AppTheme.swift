@@ -38,3 +38,13 @@ final class AppTheme {
     }
     
 }
+
+extension AppTheme {
+    
+    static func makeGallerySceneStyles() -> GallerySceneStylable {
+        GallerySceneViewController.DefaultGallerySceneStyles(
+            backgroundColor: Colors.white
+        )
+    }
+    
+}

@@ -18,4 +18,12 @@ final class AppDIContainer {
 
 extension AppDIContainer: MainCoordinatorDIContainer {
     
+    func makeGallerySceneViewModel() -> GallerySceneViewModelable {
+        GallerySceneViewModel()
+    }
+    
+    func makeGallerySceneViewController(_ viewModel: GallerySceneViewModelable) -> GallerySceneViewController {
+        GallerySceneViewController(viewModel, AppTheme.makeGallerySceneStyles())
+    }
+    
 }

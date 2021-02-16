@@ -9,11 +9,11 @@ import Foundation
 
 enum APIRouter {
     
-    static let baseUrl = "https://api.imgur.com/3"
+    static let baseUrl = "https://api.imgur.com/3/"
     
     // MARK: - Endpoints -
     
-    case dogsGallery
+    case viralHotGallery
     
     // MARK: - Convert to url request -
     
@@ -52,8 +52,8 @@ private extension APIRouter {
     
     var path: String {
         switch self {
-        case .dogsGallery:
-            return "/dogs"
+        case .viralHotGallery:
+            return "gallery/hot/viral/0.json"
         }
     }
     
@@ -63,7 +63,7 @@ private extension APIRouter {
     
     // NOTE: - Authorise for public use only, no user authentication -
     func addDefaultHeaders(_ request: inout URLRequest) {
-        request.addValue("Authorization", forHTTPHeaderField: "Client-ID \(Constants.API.clientId)")
+        request.addValue("Client-ID \(Constants.API.clientId)", forHTTPHeaderField: "Authorization")
     }
     
 }

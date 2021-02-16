@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainCoordinatorDIContainer {
-    func makeGallerySceneViewModel() -> GallerySceneViewModelable
+    func makeGallerySceneViewModel(_ callbacks: GallerySceneViewModelCallbacks) -> GallerySceneViewModelable
     func makeGallerySceneViewController(_ viewModel: GallerySceneViewModelable) -> GallerySceneViewController
 }
 
@@ -47,9 +47,16 @@ final class MainCoordinator: Coordinatable {
 private extension MainCoordinator {
     
     func presentGalleryScene() {
-        let viewModel = container.makeGallerySceneViewModel()
+        
+        let _imageSelected = { [weak self] (imageId: String) in
+            // TODO - 
+        }
+        
+        let callbacks = GallerySceneViewModelCallbacks(onImageSelected: _imageSelected)
+        let viewModel = container.makeGallerySceneViewModel(callbacks)
         let viewController = container.makeGallerySceneViewController(viewModel)
         navigationController.pushViewController(viewController, animated: false)
+        
     }
 
 }

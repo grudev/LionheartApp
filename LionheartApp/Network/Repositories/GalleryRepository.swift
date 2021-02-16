@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias GalleryDataType = ResponseData<Gallery>
+typealias GalleryDataType = ResponseData<[Gallery]>
 typealias GalleryResultType = (Result<GalleryDataType, Error>) -> Void
 
 protocol GalleryRepository {
@@ -25,7 +25,7 @@ final class NetworkGalleryRepository: GalleryRepository {
     
     func getGallery(_ completion: @escaping GalleryResultType) -> NetworkCancellable? {
         do {
-            let request = try APIRouter.dogsGallery.asURLRequest()
+            let request = try APIRouter.viralHotGallery.asURLRequest()
             let cancelable = networkManager.request(request, completion: completion)
             return cancelable
         } catch {

@@ -9,5 +9,5 @@ import Foundation
 
 struct Gallery: Codable {
     var id: String
-    var images: [Image]
+    var images: [Image]?
 }

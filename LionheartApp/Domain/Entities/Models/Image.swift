@@ -8,5 +8,5 @@
 import Foundation
 
 struct Image: Codable {
-    var id: String
+    var id: String?
 }

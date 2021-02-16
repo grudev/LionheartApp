@@ -9,7 +9,7 @@ import Foundation
 
 final class RequestGalleryUseCase: UseCase {
     
-    typealias Response = ResponseData<Gallery>
+    typealias Response = ResponseData<[Gallery]>
     typealias Request = Void?
     
     private let repository: GalleryRepository
@@ -18,7 +18,7 @@ final class RequestGalleryUseCase: UseCase {
         self.repository = repository
     }
     
-    func execute(_ request: Request, _ completion: @escaping GalleryResultType) -> NetworkCancellable? {
+    func execute(_ completion: @escaping GalleryResultType) -> NetworkCancellable? {
         repository.getGallery(completion)
     }
     

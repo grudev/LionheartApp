@@ -30,6 +30,7 @@ class GallerySceneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        requestData()
     }
     
 }
@@ -40,6 +41,22 @@ private extension GallerySceneViewController {
     
     func setup() {
         view.backgroundColor = styles.backgroundColor
+    }
+    
+    func requestData() {
+        viewModel.requestGalleryData { result in
+            switch result {
+            case .success(let galleries):
+                print("Gallery status \(galleries.status), success: \(galleries.success), data: \(galleries.data)")
+                
+                let _filteredGalleries = galleries.data.compactMap { $0.images != nil ? $0 : nil }
+                
+                print("_filteredGalleries \(_filteredGalleries.count), galleries: \(galleries.data.count)")
+                
+            case .failure(let error):
+                break
+            }
+        }
     }
     
 }

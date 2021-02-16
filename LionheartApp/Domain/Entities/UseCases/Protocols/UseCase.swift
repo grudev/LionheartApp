@@ -14,6 +14,6 @@ protocol UseCase {
     
     typealias CompletionHandler = (_ result: Result<Response, Error>) -> Void
     
-    func execute(_ request: Request, _ completion: @escaping CompletionHandler) -> NetworkCancellable?
+    func execute(_ completion: @escaping CompletionHandler) -> NetworkCancellable?
     
 }

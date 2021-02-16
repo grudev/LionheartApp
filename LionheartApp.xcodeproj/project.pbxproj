@@ -10,6 +10,8 @@
 		9F9ACA7125DC446600819E96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9ACA7025DC446600819E96 /* Constants.swift */; };
 		9F9ACA7925DC498B00819E96 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9ACA7825DC498B00819E96 /* NetworkManager.swift */; };
 		9F9ACA8425DC4A4800819E96 /* GalleryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9ACA8325DC4A4800819E96 /* GalleryRepository.swift */; };
+		9F9ACA8B25DC4BCC00819E96 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9ACA8A25DC4BCC00819E96 /* UseCase.swift */; };
+		9F9ACA9025DC4BFA00819E96 /* RequestGalleryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9ACA8F25DC4BFA00819E96 /* RequestGalleryUseCase.swift */; };
 		9FAA461425DB2B6B007329D3 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA461325DB2B6B007329D3 /* APIRouter.swift */; };
 		9FAA461925DB2DE8007329D3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA461825DB2DE8007329D3 /* Image.swift */; };
 		9FB82D6A25D7FC550032A0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82D6925D7FC550032A0FD /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 		9F9ACA7025DC446600819E96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F9ACA7825DC498B00819E96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9F9ACA8325DC4A4800819E96 /* GalleryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRepository.swift; sourceTree = "<group>"; };
+		9F9ACA8A25DC4BCC00819E96 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		9F9ACA8F25DC4BFA00819E96 /* RequestGalleryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestGalleryUseCase.swift; sourceTree = "<group>"; };
 		9FAA461325DB2B6B007329D3 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		9FAA461825DB2DE8007329D3 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9FB82D6625D7FC550032A0FD /* LionheartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionheartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,23 @@
 				9F9ACA7025DC446600819E96 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9F9ACA8825DC4BAF00819E96 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9F9ACA8925DC4BC300819E96 /* Protocols */,
+				9F9ACA8F25DC4BFA00819E96 /* RequestGalleryUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		9F9ACA8925DC4BC300819E96 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9F9ACA8A25DC4BCC00819E96 /* UseCase.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		9FAA461225DB2B4F007329D3 /* Repositories */ = {
@@ -328,6 +349,7 @@
 		9FB82E0A25D9DAE10032A0FD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9F9ACA8825DC4BAF00819E96 /* UseCases */,
 				9F9ACA6F25DC445B00819E96 /* Constants */,
 				9FB82E0B25D9DAEE0032A0FD /* Models */,
 			);
@@ -475,6 +497,7 @@
 			files = (
 				9F9ACA7925DC498B00819E96 /* NetworkManager.swift in Sources */,
 				9FB82DCF25D802DF0032A0FD /* AppTheme.swift in Sources */,
+				9F9ACA9025DC4BFA00819E96 /* RequestGalleryUseCase.swift in Sources */,
 				9FB82E1525D9DE580032A0FD /* Gallery.swift in Sources */,
 				9FB82DCA25D802020032A0FD /* MainCoordinator.swift in Sources */,
 				9FB82DE425D99BB40032A0FD /* GallerySceneViewController.swift in Sources */,
@@ -491,6 +514,7 @@
 				9FB82DE925D99BEB0032A0FD /* GallerySceneViewModel.swift in Sources */,
 				9FB82DF425D99C500032A0FD /* ImageDetailSceneViewModel.swift in Sources */,
 				9FB82DDA25D80A190032A0FD /* AppDIContainer.swift in Sources */,
+				9F9ACA8B25DC4BCC00819E96 /* UseCase.swift in Sources */,
 				9F9ACA8425DC4A4800819E96 /* GalleryRepository.swift in Sources */,
 				9F9ACA7125DC446600819E96 /* Constants.swift in Sources */,
 			);

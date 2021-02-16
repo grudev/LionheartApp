@@ -7,8 +7,17 @@
 
 import UIKit
 
-protocol GallerySceneViewModelable { }
+typealias GalleryType = ResponseData<Gallery>
+typealias RequestGalleryCompletionType = (_ response: Result<GalleryType, Error>) -> Void
+
+protocol GallerySceneViewModelable {
+    func requestGalleryData(_ completion: @escaping RequestGalleryCompletionType)
+}
 
 class GallerySceneViewModel: GallerySceneViewModelable {
+    
+    func requestGalleryData(_ completion: @escaping RequestGalleryCompletionType) {
+        
+    }
     
 }

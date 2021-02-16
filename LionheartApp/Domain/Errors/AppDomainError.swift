@@ -10,7 +10,10 @@ import UIKit
 enum AppDomainError: String, Error {
     
     // MARK: - Presentation Errors
-    case appWindowFailedToCreate = "Severe error"
+    case appWindowFailedToCreate = "fatal.error"
+    
+    // MARK: - Network Errors -
+    case failedToResolveBaseUrl = "failed.to.resolve.base.url"
     
 }
 

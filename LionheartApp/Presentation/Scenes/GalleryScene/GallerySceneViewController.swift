@@ -34,7 +34,7 @@ class GallerySceneViewController: UIViewController {
     
 }
 
-// MARK: - Private Logic
+// MARK: - Private Logic -
 
 private extension GallerySceneViewController {
     

@@ -32,9 +32,10 @@ final class RequestGalleryUseCase: UseCase {
                     return hasNoImages || isEmpty ? $0 : nil
                 }
                 
+                // premap the filtered data
                 let _filteredResponseData = ResponseData<[Gallery]>(data: _filteredGalleries,
-                                                                    success: true,
-                                                                    status: 200)
+                                                                    success: galleries.success,
+                                                                    status: galleries.status)
                 completion(.success(_filteredResponseData))
                 
             default:

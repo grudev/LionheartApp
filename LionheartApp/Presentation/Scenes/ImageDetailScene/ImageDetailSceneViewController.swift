@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 class ImageDetailSceneViewController: UIViewController {
     
@@ -44,6 +46,9 @@ class ImageDetailSceneViewController: UIViewController {
     // MARK: - Properties -
     
     private var imageCancalable: NetworkCancellable?
+    
+    private var currentFilter = CIFilter.sepiaTone()
+    private let context = CIContext()
     
     private var viewModel: ImageDetailSceneViewModelable!
     private var styles: ImageDetailSceneStylable!
@@ -117,13 +122,38 @@ private extension ImageDetailSceneViewController {
     
     @objc
     func onApplyFilterPressed() {
-        // TODO -
+        
+        guard let image = imageView.image else {
+            onFilterApplyingError()
+            return
+        }
+        
+        guard let ciImage = CIImage(image: image) else {
+            onFilterApplyingError()
+            return
+        }
+        
+        let sepiaFilter = CIFilter(name: K.filterName)
+        sepiaFilter?.setValue(ciImage, forKey: kCIInputImageKey)
+        sepiaFilter?.setValue(K.filterIntensity, forKey: kCIInputIntensityKey)
+        
+        guard let outputImage = sepiaFilter?.outputImage else {
+            onFilterApplyingError()
+            return
+        }
+        
+        imageView.image = UIImage(ciImage: outputImage)
+        
     }
     
     @objc
     func onShareButtonPressed() {
         guard let image = imageView.image else { return }
         viewModel.onShareButtonPressed(image)
+    }
+    
+    func onFilterApplyingError() {
+        // TODO: -
     }
     
     func enableUIComponents(_ enable: Bool) {
@@ -156,4 +186,13 @@ extension ImageDetailSceneViewController {
         var buttonFilterTitleDisabledColor: UIColor
     }
     
+}
+
+// MARK: - Constants
+
+private extension ImageDetailSceneViewController {
+    struct K {
+        static let filterName = "CISepiaTone"
+        static let filterIntensity: CGFloat = 0.8
+    }
 }

@@ -89,12 +89,24 @@ private extension ImageDetailSceneViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
-        ])
+        
+        // iPhone layout
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            NSLayoutConstraint.activate([
+                imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+                imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1),
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+            ])
+        } else {
+            // iPad layout
+            NSLayoutConstraint.activate([
+                imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+                imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1),
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+            ])
+        }
         
         applyFilterButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(applyFilterButton)

@@ -8,10 +8,17 @@
 import UIKit
 import CoreImage
 import CoreImage.CIFilterBuiltins
+import LionheartActivity
 
 class ImageDetailSceneViewController: UIViewController {
     
     // MARK: - Components -
+    
+    private lazy var activityIndicator: LionheartActivityIndicator = {
+        let indicator = LionheartActivityIndicator.instantiate()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -121,13 +128,16 @@ private extension ImageDetailSceneViewController {
     }
     
     func loadImage() {
+        showActivityIndicator()
         imageCancalable = viewModel.requestImage { [weak self] result in
+            guard let self = self else { return }
+            self.removeActivityIndicator()
             switch result {
             case .success(let image):
-                self?.imageView.image = image
-                self?.enableUIComponents(true)
+                self.imageView.image = image
+                self.enableUIComponents(true)
             case .failure:
-                self?.enableUIComponents(false)
+                self.enableUIComponents(false)
             }
         }
     }
@@ -171,6 +181,18 @@ private extension ImageDetailSceneViewController {
     func enableUIComponents(_ enable: Bool) {
         shareButton.isEnabled = enable
         applyFilterButton.isEnabled = enable
+    }
+    
+    func showActivityIndicator() {
+        view.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
+        ])
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
     }
     
     func cleanup() {

@@ -91,7 +91,16 @@ private extension MainCoordinator {
 
     func presentShareScene(with image: UIImage) {
         let shareScene = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        navigationController.present(shareScene, animated: true, completion: nil)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+//            guard let presentingViewController = navigationController.presentingViewController else { return }
+            guard let sourceView = navigationController.topViewController?.view else { return }
+            shareScene.popoverPresentationController?.sourceView = sourceView
+            shareScene.popoverPresentationController?.sourceRect = sourceView.frame
+        } else {
+            navigationController.present(shareScene, animated: true, completion: nil)
+        }
+        
     }
     
 }

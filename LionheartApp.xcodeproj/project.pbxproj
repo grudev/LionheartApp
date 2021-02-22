@@ -39,9 +39,18 @@
 		9FB82DF925D9A6D60032A0FD /* GallerySceneDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82DF825D9A6D60032A0FD /* GallerySceneDataProvider.swift */; };
 		9FB82E0D25D9DB160032A0FD /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82E0C25D9DB160032A0FD /* ResponseData.swift */; };
 		9FB82E1525D9DE580032A0FD /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB82E1425D9DE580032A0FD /* Gallery.swift */; };
+		9FD4F2EA25E3C1DF00520945 /* LionheartActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F807F3325E3AE5200235716 /* LionheartActivity.framework */; };
+		9FD4F2EB25E3C1DF00520945 /* LionheartActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F807F3325E3AE5200235716 /* LionheartActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9F807F3225E3AE5200235716 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F807F2E25E3AE5100235716 /* LionheartActivity.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9F807F2325E3AE5100235716;
+			remoteInfo = LionheartActivity;
+		};
 		9FB82D7D25D7FC590032A0FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9FB82D5E25D7FC550032A0FD /* Project object */;
@@ -58,6 +67,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9FD4F2EC25E3C1DF00520945 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9FD4F2EB25E3C1DF00520945 /* LionheartActivity.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9F807EE325E2FD9100235716 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		9F807EEB25E3026C00235716 /* GalleryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCellViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +88,7 @@
 		9F807EF525E3069F00235716 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		9F807EFB25E3103E00235716 /* GallerySceneLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySceneLayouts.swift; sourceTree = "<group>"; };
 		9F807F1025E3322C00235716 /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
+		9F807F2E25E3AE5100235716 /* LionheartActivity.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LionheartActivity.xcodeproj; path = LionheartActivity/LionheartActivity.xcodeproj; sourceTree = "<group>"; };
 		9F9ACA7025DC446600819E96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F9ACA7825DC498B00819E96 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9F9ACA8325DC4A4800819E96 /* GalleryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRepository.swift; sourceTree = "<group>"; };
@@ -104,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD4F2EA25E3C1DF00520945 /* LionheartActivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +165,14 @@
 				9F807F1025E3322C00235716 /* GalleryCollectionViewLayout.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		9F807F2F25E3AE5100235716 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F807F3325E3AE5200235716 /* LionheartActivity.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9F9ACA6F25DC445B00819E96 /* Constants */ = {
@@ -180,10 +213,12 @@
 		9FB82D5D25D7FC550032A0FD = {
 			isa = PBXGroup;
 			children = (
+				9F807F2E25E3AE5100235716 /* LionheartActivity.xcodeproj */,
 				9FB82D6825D7FC550032A0FD /* LionheartApp */,
 				9FB82D7F25D7FC590032A0FD /* LionheartAppTests */,
 				9FB82D8A25D7FC590032A0FD /* LionheartAppUITests */,
 				9FB82D6725D7FC550032A0FD /* Products */,
+				9FD4F2E825E3C1DF00520945 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +435,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9FD4F2E825E3C1DF00520945 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,6 +452,7 @@
 				9FB82D6225D7FC550032A0FD /* Sources */,
 				9FB82D6325D7FC550032A0FD /* Frameworks */,
 				9FB82D6425D7FC550032A0FD /* Resources */,
+				9FD4F2EC25E3C1DF00520945 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +532,12 @@
 			mainGroup = 9FB82D5D25D7FC550032A0FD;
 			productRefGroup = 9FB82D6725D7FC550032A0FD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9F807F2F25E3AE5100235716 /* Products */;
+					ProjectRef = 9F807F2E25E3AE5100235716 /* LionheartActivity.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9FB82D6525D7FC550032A0FD /* LionheartApp */,
@@ -497,6 +546,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9F807F3325E3AE5200235716 /* LionheartActivity.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LionheartActivity.framework;
+			remoteRef = 9F807F3225E3AE5200235716 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9FB82D6425D7FC550032A0FD /* Resources */ = {

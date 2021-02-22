@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LionheartActivity
 
 final class GalleryCell: UICollectionViewCell {
     
@@ -22,6 +23,12 @@ final class GalleryCell: UICollectionViewCell {
     private var viewModel: GalleryCellViewModel?
     private var styleSheet: GalleryCellStylable!
     private var cancalable: NetworkCancellable?
+    
+    private lazy var activityIndicator: LionheartActivityIndicator = {
+        let indicator = LionheartActivityIndicator.instantiate()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
     
     private lazy var _setupLayout: Void = setupLayout()
     
@@ -56,10 +63,15 @@ private extension GalleryCell {
     }
     
     func loadData() {
+        showActivityIndicator()
         cancalable = viewModel?.loadImage { [weak self] result in
+            
+            guard let self = self else { return }
+            self.removeActivityIndicator()
+            
             switch result {
             case .success(let image):
-                self?.imageView.image = image
+                self.imageView.image = image
             case .failure(_):
                 break
             }
@@ -100,6 +112,18 @@ private extension GalleryCell {
         
         contentView.backgroundColor = styleSheet.backgroundColor
         
+    }
+    
+    func showActivityIndicator() {
+        addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
     }
     
 }

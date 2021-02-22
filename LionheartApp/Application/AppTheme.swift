@@ -16,6 +16,7 @@ final class AppTheme {
         static let green = UIColor(named: "green") ?? UIColor.black
         static let white = UIColor.white
         static let gray = UIColor.darkGray
+        static let lightGray = UIColor.lightGray
         
         struct Text {
             static var `default`: UIColor { gray }
@@ -62,7 +63,9 @@ extension AppTheme {
     static func makeImageSceneStyles() -> ImageDetailSceneStylable {
         ImageDetailSceneViewController.DefaultImageDetailSceneStyles(
             backgroundColor: Colors.white,
-            buttonFilterBackgroundColor: Colors.green
+            buttonFilterBackgroundColor: Colors.green,
+            buttonFilterTitleNormalColor: Colors.white,
+            buttonFilterTitleDisabledColor: Colors.lightGray
         )
     }
     

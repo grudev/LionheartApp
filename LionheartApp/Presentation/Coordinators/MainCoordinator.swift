@@ -73,7 +73,7 @@ private extension MainCoordinator {
         
         let _onShare = { [weak self] (_ image: UIImage) -> Void in
             guard let self = self else { return }
-            
+            self.presentShareScene(with: image)
         }
         
         let _onBack = { [weak self] () -> Void in
@@ -89,4 +89,9 @@ private extension MainCoordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
+    func presentShareScene(with image: UIImage) {
+        let shareScene = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        navigationController.present(shareScene, animated: true, completion: nil)
+    }
+    
 }

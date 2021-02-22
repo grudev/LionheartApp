@@ -24,6 +24,8 @@ class ImageDetailSceneViewController: UIViewController {
         button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         button.setTitle(_localizedTitle, for: .normal)
         button.setTitle(_localizedTitle, for: .highlighted)
+        button.setTitleColor(styles.buttonFilterTitleNormalColor, for: .normal)
+        button.setTitleColor(styles.buttonFilterTitleDisabledColor, for: .disabled)
         button.backgroundColor = styles.buttonFilterBackgroundColor
         button.layer.cornerRadius = 5
         button.sizeToFit()
@@ -98,6 +100,7 @@ private extension ImageDetailSceneViewController {
         applyFilterButton.addTarget(self, action: #selector(onApplyFilterPressed), for: .touchUpInside)
         
         _ = shareButton
+        enableUIComponents(false)
     }
     
     func loadImage() {
@@ -105,9 +108,9 @@ private extension ImageDetailSceneViewController {
             switch result {
             case .success(let image):
                 self?.imageView.image = image
+                self?.enableUIComponents(true)
             case .failure:
-                // TODO: Handle errors
-                break
+                self?.enableUIComponents(false)
             }
         }
     }
@@ -119,7 +122,13 @@ private extension ImageDetailSceneViewController {
     
     @objc
     func onShareButtonPressed() {
-        // TODO - 
+        guard let image = imageView.image else { return }
+        viewModel.onShareButtonPressed(image)
+    }
+    
+    func enableUIComponents(_ enable: Bool) {
+        shareButton.isEnabled = enable
+        applyFilterButton.isEnabled = enable
     }
     
     func cleanup() {
@@ -134,6 +143,8 @@ private extension ImageDetailSceneViewController {
 protocol ImageDetailSceneStylable {
     var backgroundColor: UIColor { get }
     var buttonFilterBackgroundColor: UIColor { get }
+    var buttonFilterTitleNormalColor: UIColor { get }
+    var buttonFilterTitleDisabledColor: UIColor { get }
 }
 
 extension ImageDetailSceneViewController {
@@ -141,6 +152,8 @@ extension ImageDetailSceneViewController {
     struct DefaultImageDetailSceneStyles: ImageDetailSceneStylable {
         var backgroundColor: UIColor
         var buttonFilterBackgroundColor: UIColor
+        var buttonFilterTitleNormalColor: UIColor
+        var buttonFilterTitleDisabledColor: UIColor
     }
     
 }

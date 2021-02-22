@@ -30,10 +30,6 @@ class GallerySceneViewModel: GallerySceneViewModelable, GalleryCellViewModelPare
     private let galleryUseCase: RequestGalleryUseCase!
     private var imageUseCase: RequestImageUseCase!
     
-    // MARK: - Output Properties
-    
-    var galleryCompletion: GalleryCompletionHandler?
-    
     // MARK: - ViewModel Lifecycle
     
     init(_ callbacks: GallerySceneViewModelCallbacks,
@@ -43,6 +39,8 @@ class GallerySceneViewModel: GallerySceneViewModelable, GalleryCellViewModelPare
         self.galleryUseCase = galleryUseCase
         self.imageUseCase = imageUseCase
     }
+    
+    // MARK: - Public API - 
     
     func requestGalleryData(_ completion: @escaping RequestGalleryCompletionType) {
         // TODO: - Use returned cancalable or just @discardableResult to ignore returned data task

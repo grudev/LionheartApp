@@ -28,6 +28,15 @@ extension AppDIContainer: MainCoordinatorDIContainer {
         GallerySceneViewController(viewModel, AppTheme.makeGallerySceneStyles())
     }
     
+    func makeImageDetailViewModel(_ imageId: String,
+                                  _ callbacks: ImageDetailSceneViewModelCallbacks) -> ImageDetailSceneViewModelable {
+        ImageDetailSceneViewModel(imageId, callbacks, makeImageUseCase())
+    }
+    
+    func makeImageDetailViewController(_ viewModel: ImageDetailSceneViewModelable) -> ImageDetailSceneViewController {
+        ImageDetailSceneViewController(viewModel, AppTheme.makeImageSceneStyles())
+    }
+    
 }
 
 // MARK: - UseCases -

@@ -59,4 +59,11 @@ extension AppTheme {
         )
     }
     
+    static func makeImageSceneStyles() -> ImageDetailSceneStylable {
+        ImageDetailSceneViewController.DefaultImageDetailSceneStyles(
+            backgroundColor: Colors.white,
+            buttonFilterBackgroundColor: Colors.green
+        )
+    }
+    
 }

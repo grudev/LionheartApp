@@ -8,8 +8,18 @@
 import UIKit
 
 protocol MainCoordinatorDIContainer {
+    
+    // MARK: - Gallery Scene
+    
     func makeGallerySceneViewModel(_ callbacks: GallerySceneViewModelCallbacks) -> GallerySceneViewModelable
     func makeGallerySceneViewController(_ viewModel: GallerySceneViewModelable) -> GallerySceneViewController
+    
+    // MARK: - Image Detail Scene
+    
+    func makeImageDetailViewModel(_ imageId: String,
+                                  _ callbacks: ImageDetailSceneViewModelCallbacks) -> ImageDetailSceneViewModelable
+    
+    func makeImageDetailViewController(_ viewModel: ImageDetailSceneViewModelable) -> ImageDetailSceneViewController
 }
 
 final class MainCoordinator: Coordinatable {
@@ -61,6 +71,22 @@ private extension MainCoordinator {
     
     func presentImageDetailScene(_ imageId: String) {
         
+        let _onShare = { [weak self] (_ image: UIImage) -> Void in
+            guard let self = self else { return }
+            
+        }
+        
+        let _onBack = { [weak self] () -> Void in
+            guard let self = self else { return }
+            self.navigationController.popToRootViewController(animated: true)
+        }
+        
+        let callbacks = ImageDetailSceneViewModelCallbacks(onShareButtonPressed: _onShare,
+                                                           onBackButtonPressed: _onBack)
+        let viewModel = container.makeImageDetailViewModel(imageId,
+                                                           callbacks)
+        let viewController = container.makeImageDetailViewController(viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

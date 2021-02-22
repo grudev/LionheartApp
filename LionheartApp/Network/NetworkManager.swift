@@ -16,9 +16,13 @@ protocol NetworkManager {
     func request<T>(_ request: URLRequest,
                     completion: @escaping (Result<T, Error>) -> Void) -> NetworkCancellable where T: Decodable
     
+    func request(_ request: URLRequest,
+                 completion: @escaping (Result<UIImage, Error>) -> Void) -> NetworkCancellable
+    
 }
 
 protocol NetworkCancellable {
+    var taskIdentifier: Int { get }
     func cancel()
 }
 
@@ -61,6 +65,34 @@ final class DefaultNetworkManager: NetworkManager {
                     } catch {
                         completion(.failure(error))
                     }
+                }
+            }
+            
+        }
+        dataTask.resume()
+        return dataTask
+    }
+    
+    // NOTE: - Not generic variation of request method to handle specifically UIImage requests
+    func request(_ request: URLRequest, completion: @escaping (Result<UIImage, Error>) -> Void) -> NetworkCancellable {
+        let dataTask = DefaultNetworkManager.session.dataTask(with: request) { data, response, error in
+            
+            // NOTE: - Make sure to return the callback on main thread
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    guard let data = data else {
+                        print("No Response")
+                        return
+                    }
+                    
+                    guard let image = UIImage(data: data) else {
+                        completion(.failure(AppDomainError.failedToDecodeImageData))
+                        return
+                    }
+                    
+                    completion(.success(image))
                 }
             }
             

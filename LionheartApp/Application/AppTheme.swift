@@ -23,6 +23,12 @@ final class AppTheme {
         
     }
     
+    struct Text {
+        static func appFont(size: CGFloat) -> UIFont {
+            return UIFont.systemFont(ofSize: size)
+        }
+    }
+    
     // MARK: - Apply General Theme
     
     static func applyGeneralTheme() {
@@ -42,8 +48,14 @@ final class AppTheme {
 extension AppTheme {
     
     static func makeGallerySceneStyles() -> GallerySceneStylable {
-        GallerySceneViewController.DefaultGallerySceneStyles(
-            backgroundColor: Colors.white
+        
+        let cellStyle = GalleryCell.StyleSheet(backgroundColor: Colors.white,
+                                               titleFont: Text.appFont(size: 18),
+                                               titleColor: Colors.white)
+        
+        return GallerySceneViewController.DefaultGallerySceneStyles(
+            backgroundColor: Colors.white,
+            cellStyle: cellStyle
         )
     }
     

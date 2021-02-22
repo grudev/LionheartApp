@@ -10,16 +10,25 @@ import Foundation
 enum APIRouter {
     
     static let baseUrl = "https://api.imgur.com/3/"
+    static let baseImageUrl = "https://i.imgur.com/"
     
     // MARK: - Endpoints -
     
     case viralHotGallery
+    case galleryImage(id: String)
     
     // MARK: - Convert to url request -
     
     func asURLRequest() throws -> URLRequest {
         
-        guard var components = URLComponents(string: APIRouter.baseUrl) else { throw AppDomainError.failedToResolveBaseUrl }
+        var components: URLComponents!
+        
+        switch self {
+        case .galleryImage:
+            components = URLComponents(string: APIRouter.baseImageUrl)
+        default:
+            components = URLComponents(string: APIRouter.baseUrl)
+        }
         
         var urlQueryItems = components.queryItems ?? [URLQueryItem]()
         parameters?.forEach {
@@ -54,6 +63,8 @@ private extension APIRouter {
         switch self {
         case .viralHotGallery:
             return "gallery/hot/viral/0.json"
+        case .galleryImage(let id):
+            return "\(id).jpg"
         }
     }
     

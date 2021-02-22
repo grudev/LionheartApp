@@ -21,7 +21,7 @@ final class AppDIContainer {
 extension AppDIContainer: MainCoordinatorDIContainer {
     
     func makeGallerySceneViewModel(_ callbacks: GallerySceneViewModelCallbacks) -> GallerySceneViewModelable {
-        GallerySceneViewModel(callbacks, makeGalleryUseCase())
+        GallerySceneViewModel(callbacks, makeGalleryUseCase(), makeImageUseCase())
     }
     
     func makeGallerySceneViewController(_ viewModel: GallerySceneViewModelable) -> GallerySceneViewController {
@@ -37,6 +37,10 @@ private extension AppDIContainer {
     func makeGalleryUseCase() -> RequestGalleryUseCase {
         RequestGalleryUseCase(makeGalleryRepository())
     }
+    
+    func makeImageUseCase() -> RequestImageUseCase {
+        RequestImageUseCase(makeImageRepository())
+    }
 
 }
 
@@ -46,6 +50,10 @@ private extension AppDIContainer {
     
     func makeGalleryRepository() -> GalleryRepository {
         NetworkGalleryRepository(networkManager)
+    }
+    
+    func makeImageRepository() -> ImageRepository {
+        NetworkImageRepository(networkManager)
     }
     
 }

@@ -48,14 +48,18 @@ private extension MainCoordinator {
     
     func presentGalleryScene() {
         
-        let _imageSelected = { [weak self] (imageId: String) in
-            // TODO - 
+        let _imageSelected = { [weak self] (imageId: String) -> Void in
+            self?.presentImageDetailScene(imageId)
         }
         
         let callbacks = GallerySceneViewModelCallbacks(onImageSelected: _imageSelected)
         let viewModel = container.makeGallerySceneViewModel(callbacks)
         let viewController = container.makeGallerySceneViewController(viewModel)
         navigationController.pushViewController(viewController, animated: false)
+        
+    }
+    
+    func presentImageDetailScene(_ imageId: String) {
         
     }
 
